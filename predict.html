@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Fraud Prediction</h2>
+<form method="POST" action="/predict">
+    <div class="mb-3">
+        <label for="type" class="form-label">Transaction Type</label>
+        <input type="text" class="form-control" id="type" name="Transaction Type" required>
+    </div>
+    <div class="mb-3">
+        <label for="amount" class="form-label">Transaction Amount</label>
+        <input type="number" class="form-control" id="amount" name="Transaction Amount" required>
+    </div>
+    <!-- Add more input fields based on your model's features -->
+    <button type="submit" class="btn btn-success">Predict</button>
+</form>
+
+{% if result %}
+<div class="alert alert-info mt-3">
+    <strong>Prediction Result:</strong> {{ result }}
+</div>
+{% endif %}
+{% endblock %}
